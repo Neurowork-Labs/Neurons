@@ -1,0 +1,15 @@
+/design
+/data
+/supabase
+/tests
+
+.env
+.venv
+*.tsbuildinfo
+
+__pycache__/
+*.py[cod]
+
+/docs/cursor-history
+
+demo.json

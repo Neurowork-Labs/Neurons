@@ -1,0 +1,50 @@
+flowchart TD
+    START([POST /v1/chat - user message]) --> AUTH[Validate secret and parse request]
+    AUTH --> RESOLVE[Resolve model for project_agent_id from Supabase]
+    RESOLVE --> ROUTER_LLM
+
+    subgraph LLM1 [LLM Call #1 - Router]
+        ROUTER_LLM[Classify message as rag / db / both]
+        ROUTER_LLM --> MODE{Mode result}
+    end
+
+    MODE -->|rag| EMBED
+    MODE -->|db or both| NOTE_DB[Out of scope in this doc]
+
+    subgraph RAG [RAG Retrieval Path]
+        EMBED[Create query embedding] --> MATCH[Supabase RPC match_document_chunks]
+        MATCH --> CTX[Build context from retrieved chunks]
+    end
+
+    CTX --> FINAL_PROMPT[Build final prompt: system + history + RAG context]
+
+    subgraph LLM2 [LLM Call #2 - Final Answer]
+        FINAL_PROMPT --> ANSWER_LLM[Generate assistant reply]
+    end
+
+    ANSWER_LLM --> FOLLOWUP_PROMPT[Build follow-up suggestion prompt]
+
+    subgraph LLM3 [LLM Call #3 - Suggestions]
+        FOLLOWUP_PROMPT --> SUGGEST_LLM[Generate exactly 3 suggestions]
+    end
+
+    SUGGEST_LLM --> RESPONSE[Assemble response JSON]
+    RESPONSE --> RETURN([Return reply + suggestions + sources])
+
+    %% Latency guide (observed ranges)
+    START -.-> L_START[0.05s-0.2s API entry and validation]
+    RESOLVE -.-> L_RESOLVE[0.5s-1.2s model/config reads]
+    ROUTER_LLM -.-> L_ROUTER[2s-5s]
+    EMBED -.-> L_EMBED[0.3s-1s]
+    MATCH -.-> L_MATCH[0.3s-0.8s]
+    ANSWER_LLM -.-> L_ANSWER[3s-6s]
+    SUGGEST_LLM -.-> L_SUGGEST[3s-5s]
+    RETURN -.-> L_TOTAL[Typical RAG total: 11s-17s]
+
+    classDef llm fill:#ffe9b3,stroke:#b58100,color:#111;
+    classDef infra fill:#e6f4ff,stroke:#1f6fb2,color:#111;
+    classDef note fill:#f4f4f4,stroke:#777,color:#111;
+
+    class ROUTER_LLM,ANSWER_LLM,SUGGEST_LLM llm;
+    class AUTH,RESOLVE,EMBED,MATCH,CTX,FINAL_PROMPT,FOLLOWUP_PROMPT,RESPONSE infra;
+    class NOTE_DB note;

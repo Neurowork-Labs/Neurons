@@ -1,0 +1,177 @@
+flowchart TD
+    START([POST /v1/chat — visitor message]) --> INIT[run_rag_agent_turn]
+    INIT --> LLM_RESOLVE[Resolve LLM client for project agent]
+    LLM_RESOLVE --> ROUTER
+
+    subgraph STEP1 [Step 1 — Router LLM]
+        ROUTER[Router LLM prompt:<br/>classify as rag / db / both]
+        ROUTER --> MODE{mode?}
+    end
+
+    MODE -->|rag| RAG_BRANCH
+    MODE -->|db| DB_BRANCH
+    MODE -->|both| BOTH_SPLIT[ ]
+    BOTH_SPLIT --> RAG_BRANCH
+    BOTH_SPLIT --> DB_BRANCH
+
+    subgraph STEP2 [Step 2 — RAG Branch]
+        RAG_BRANCH[Embed visitor question<br/>via GeminiEmbedder]
+        RAG_BRANCH --> CHUNK_RETRIEVE[retrieve_similar_chunks<br/>from Supabase vector store]
+        CHUNK_RETRIEVE --> CTX_BUILD[Append matched document<br/>excerpts to context]
+    end
+
+    subgraph STEP3 [Step 3 — DB Branch]
+        DB_BRANCH[Try load live DB context<br/>from database_connections]
+        DB_BRANCH --> LIVE_CHECK{Live context<br/>found & valid?}
+
+        LIVE_CHECK -->|Yes| DIALECT_CHECK{dialect?}
+        LIVE_CHECK -->|No| UPLOAD_PATH
+
+        subgraph LIVE_DB [Live Database Path]
+            DIALECT_CHECK -->|mysql| SQL_MODE_CHECK
+            DIALECT_CHECK -->|mongodb| MONGO_MODE_CHECK
+
+            subgraph SQL_LIVE [Live SQL — MySQL]
+                SQL_MODE_CHECK{query_mode?}
+
+                SQL_MODE_CHECK -->|template_only| SQL_TMPL_ONLY[Load active templates<br/>filter by dialect]
+                SQL_TMPL_ONLY --> SQL_TMPL_EXIST{Templates<br/>exist?}
+                SQL_TMPL_EXIST -->|No| SQL_TMPL_ERR[Error: No active templates]
+                SQL_TMPL_EXIST -->|Yes| SQL_TMPL_PICK
+
+                SQL_MODE_CHECK -->|template_preferred| SQL_TMPL_PREF[Load active templates<br/>filter by dialect]
+                SQL_TMPL_PREF --> SQL_TMPL_PICK[LLM picks best template]
+                SQL_TMPL_PICK --> SQL_PICKED{Template<br/>matched?}
+                SQL_PICKED -->|No + template_only| SQL_NO_MATCH_ERR[Error: No template matched]
+                SQL_PICKED -->|No + template_preferred| SQL_GENERATED
+                SQL_PICKED -->|Yes| SQL_RESOLVE_PARAMS
+
+                SQL_MODE_CHECK -->|generated| SQL_GENERATED
+
+                subgraph TEMPLATE_PARAMS [Template Parameter Resolution]
+                    SQL_RESOLVE_PARAMS[_resolve_template_parameters]
+                    SQL_RESOLVE_PARAMS --> CONV_CTX[Build conversation context<br/>from last 6 turns + current msg]
+                    CONV_CTX --> EXTRACT_LLM[LLM extracts param values<br/>with semantic rules]
+                    EXTRACT_LLM --> PARAM_CHECK{All required<br/>params resolved?}
+                    PARAM_CHECK -->|Missing + attempts < 2| ASK_VISITOR[Polite follow-up:<br/>ask visitor for details]
+                    PARAM_CHECK -->|Missing + attempts >= 2| USE_DEFAULTS[Use defaults / fail]
+                    PARAM_CHECK -->|All resolved| COERCE[Coerce + validate<br/>types & enums]
+                    COERCE --> BIND_SQL[Bind params into SQL<br/>:param → literal]
+                end
+
+                ASK_VISITOR --> FORCED_REPLY[forced_reply = follow-up message]
+                USE_DEFAULTS --> BIND_SQL
+
+                BIND_SQL --> ALIAS_VALIDATE[Alias-aware SQL validation<br/>against schema_snapshot]
+                ALIAS_VALIDATE --> SQL_TMPL_EXEC[_run_select_live_sql<br/>dispatch to MySQL runner]
+                SQL_TMPL_EXEC --> SQL_VERIFY_T[SQL Verifier LLM]
+
+                subgraph GEN_PIPELINE [Generated SQL Pipeline — 3-LLM Orchestration]
+                    SQL_GENERATED{Pipeline<br/>selection}
+                    SQL_GENERATED -->|USE_LANGCHAIN_SQL=true| LC[LangChain SQL Chain<br/>run_langchain_live_sql]
+                    LC --> LC_EXEC[Execute via mysql_runner]
+                    LC_EXEC --> LC_VERIFY[SQL Verifier LLM]
+                    LC_VERIFY --> LC_RETRY{Pass?}
+                    LC_RETRY -->|No, retry| LC
+                    LC_RETRY -->|Yes or max attempts| GEN_DONE
+
+                    SQL_GENERATED -->|USE_LLAMAINDEX_SQL=true<br/>+ LangChain not used| LI[LlamaIndex NLSQLEngine<br/>run_llamaindex_live_sql]
+                    LI --> LI_EXEC[Execute via mysql_runner]
+                    LI_EXEC --> LI_VERIFY[SQL Verifier LLM]
+                    LI_VERIFY --> LI_RETRY{Pass?}
+                    LI_RETRY -->|No, retry| LI
+                    LI_RETRY -->|Yes or max attempts| GEN_DONE
+
+                    SQL_GENERATED -->|Neither enabled| CUSTOM[Custom 3-LLM Pipeline<br/>_run_db_pipeline_live_sql]
+                    CUSTOM --> SQL_GEN_LLM[SQL Generator LLM<br/>generate_sql dialect-aware]
+                    SQL_GEN_LLM --> SCHEMA_GUARD[Alias-aware schema<br/>validation]
+                    SCHEMA_GUARD --> SQL_EXEC[Execute via<br/>_run_select_live_sql]
+                    SQL_EXEC --> SQL_VER[SQL Verifier LLM]
+                    SQL_VER --> SQL_RETRY{Pass?}
+                    SQL_RETRY -->|No, retry| SQL_GEN_LLM
+                    SQL_RETRY -->|Yes or max attempts| GEN_DONE
+                end
+                GEN_DONE[db_answer from generated pipeline]
+            end
+
+            subgraph MONGO_LIVE [Live MongoDB]
+                MONGO_MODE_CHECK{query_mode?}
+
+                MONGO_MODE_CHECK -->|template_only| MG_TMPL_ONLY[Load active templates<br/>filter mongo_json]
+                MG_TMPL_ONLY --> MG_TMPL_EXIST{Templates<br/>exist?}
+                MG_TMPL_EXIST -->|No| MG_TMPL_ERR[Error: No active templates]
+                MG_TMPL_EXIST -->|Yes| MG_TMPL_PICK
+
+                MONGO_MODE_CHECK -->|template_preferred| MG_TMPL_PREF[Load active templates<br/>filter mongo_json]
+                MG_TMPL_PREF --> MG_TMPL_PICK[LLM picks best template]
+                MG_TMPL_PICK --> MG_PICKED{Template<br/>matched?}
+                MG_PICKED -->|No + template_only| MG_NO_MATCH[Error: No template matched]
+                MG_PICKED -->|No + template_preferred| MG_GENERATED
+                MG_PICKED -->|Yes| MG_RESOLVE_PARAMS
+
+                MONGO_MODE_CHECK -->|generated| MG_GENERATED
+
+                subgraph MG_TEMPLATE_PARAMS [Mongo Template Parameter Resolution]
+                    MG_RESOLVE_PARAMS[_resolve_template_parameters<br/>same flow as SQL]
+                    MG_RESOLVE_PARAMS --> MG_BIND[Apply params into query_body<br/>replace placeholders]
+                end
+
+                MG_BIND --> MG_TMPL_EXEC[Execute via mongo_runner<br/>run_query_mongo]
+                MG_TMPL_EXEC --> MG_VERIFY_T[Mongo Verifier LLM]
+
+                subgraph MG_GEN [Generated Mongo Pipeline]
+                    MG_GENERATED[Mongo Generator LLM<br/>generate_mongo_query]
+                    MG_GENERATED --> MG_GEN_EXEC[Execute via mongo_runner]
+                    MG_GEN_EXEC --> MG_GEN_VER[Mongo Verifier LLM]
+                    MG_GEN_VER --> MG_GEN_RETRY{Pass?}
+                    MG_GEN_RETRY -->|No, retry| MG_GENERATED
+                    MG_GEN_RETRY -->|Yes or max attempts| MG_GEN_DONE
+                end
+                MG_GEN_DONE[db_answer from mongo pipeline]
+            end
+        end
+
+        subgraph UPLOAD [Uploaded Database Path — SQLite]
+            UPLOAD_PATH[Load from document_database_schemas<br/>+ document_database_table_data]
+            UPLOAD_PATH --> UPLOAD_CHECK{Table data<br/>found?}
+            UPLOAD_CHECK -->|No| NO_DB[No DB data available]
+            UPLOAD_CHECK -->|Yes| SQLITE_LOAD[load_tables_into_sqlite<br/>in-memory SQLite DB]
+            SQLITE_LOAD --> SQLITE_TABLES[Shortlist relevant tables]
+            SQLITE_TABLES --> SQLITE_PIPELINE[Custom 3-LLM Pipeline<br/>_run_db_pipeline_sqlite]
+            SQLITE_PIPELINE --> SQLITE_GEN[SQL Generator LLM<br/>dialect=sqlite]
+            SQLITE_GEN --> SQLITE_EXEC[Execute via sqlite_runner<br/>run_select]
+            SQLITE_EXEC --> SQLITE_VER[SQL Verifier LLM]
+            SQLITE_VER --> SQLITE_RETRY{Pass?}
+            SQLITE_RETRY -->|No, retry| SQLITE_GEN
+            SQLITE_RETRY -->|Yes or max attempts| SQLITE_DONE[db_answer from SQLite]
+        end
+    end
+
+    CTX_BUILD --> FINAL
+    FORCED_REPLY --> EARLY_RETURN[Return forced_reply directly<br/>skip final LLM]
+    SQL_VERIFY_T --> FINAL
+    SQL_TMPL_ERR --> FINAL
+    SQL_NO_MATCH_ERR --> FINAL
+    GEN_DONE --> FINAL
+    MG_VERIFY_T --> FINAL
+    MG_TMPL_ERR --> FINAL
+    MG_NO_MATCH --> FINAL
+    MG_GEN_DONE --> FINAL
+    SQLITE_DONE --> FINAL
+    NO_DB --> FINAL
+
+    subgraph STEP4 [Step 4 — Final Answer LLM]
+        FINAL[Build final prompt:<br/>system instruction + RAG context + db_answer]
+        FINAL --> FINAL_LLM[Primary LLM generates<br/>natural-language reply]
+    end
+
+    subgraph STEP5 [Step 5 — Follow-up Suggestions + Cards]
+        FINAL_LLM --> SUGGEST[LLM generates 3<br/>follow-up suggestions]
+        SUGGEST --> CARDS{db_answer has<br/>list data?}
+        CARDS -->|Yes| BUILD_CARDS[Extract card objects:<br/>title, details, image]
+        CARDS -->|No| RESPONSE
+        BUILD_CARDS --> RESPONSE
+    end
+
+    EARLY_RETURN --> RETURN
+    RESPONSE[Assemble response JSON] --> RETURN([Return to visitor:<br/>reply, sources, suggestions, cards, sql, tokens])

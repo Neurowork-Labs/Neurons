@@ -1,0 +1,43 @@
+flowchart TD
+    A[POST /v1/chat] --> B[run_rag_agent_turn]
+    B --> C{Route mode}
+    C -->|rag| R[RAG-only answer]
+    C -->|db or both| D[Load live DB context]
+
+    D --> E{Live context valid?}
+    E -->|No| U[Fallback uploaded SQLite path or no DB data]
+    E -->|Yes| F[Read query_mode]
+
+    F --> G{query_mode}
+    G -->|generated| GP[Generated DB pipeline]
+    G -->|template_preferred| TP[Load+filter templates then try pick]
+    G -->|template_only| TO[Load+filter templates then must pick]
+
+    TO --> H{Any active templates?}
+    H -->|No| ERR1[db_answer = No active templates error]
+    H -->|Yes| I[Pick template index]
+
+    TP --> I
+    I --> J{Template picked?}
+    J -->|No + template_only| ERR2[db_answer = No template matched error]
+    J -->|No + template_preferred| GP
+    J -->|Yes| K{Dialect}
+
+    K -->|mysql/sql| L[Execute SQL template]
+    K -->|mongodb| M[Execute Mongo template]
+
+    L --> N{Execution OK?}
+    M --> N
+    N -->|No| ERR3[db_answer = SQL/Mongo error]
+    N -->|Yes| OK[db_answer = query result JSON]
+
+    GP --> Z[db_answer from generated pipeline]
+    ERR1 --> Q
+    ERR2 --> Q
+    ERR3 --> Q
+    OK --> Q
+    Z --> Q
+    R --> Q
+    U --> Q
+
+    Q[Final prompt includes db_answer] --> S[LLM writes natural-language reply]
