@@ -1,7 +1,5 @@
 /design
 /data
-/supabase
-/tests
 
 .env
 .venv
