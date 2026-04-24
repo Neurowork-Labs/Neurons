@@ -181,7 +181,7 @@ flowchart TB
   PgvectorWorker -- Document metadata/status --> DB
   PgvectorWorker -- Download files --> Storage
 ```
-<img width="8192" height="3074" alt="neurons-sys-arch-diagram" src="https://github.com/user-attachments/assets/ed267711-e079-41ef-a0ca-f89cb95117ce" />
+<img width="8192" height="3074" alt="neurons-sys-arch-diagram" src="https://github.com/user-attachments/assets/c4ac640c-4362-439f-bdd1-6510dacbe1b3" />
 
 ### Tech-stack
 | Component | Tool | Remark |
