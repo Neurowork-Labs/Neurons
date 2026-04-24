@@ -216,10 +216,10 @@ flowchart TB
 1. Users write script tags in their website code.
 ```
 <script
-    src="https://cdn.neurons.com/widget.js"
-    agentId=”A456”
-    domainKey=”sk_domain…”
-    …
+    src="your_deployed_app_origin/scripts/rag-agent-widget.js"
+    data-api-key="aepk_TPP••••••••"
+    data-project-agent-id="157d3dc5-fb7••••••••••••••••••••••••"
+    async
 >
 </script>
 ```
@@ -255,7 +255,7 @@ flowchart TB
 ## Scope
 
 ### Hosting
-1. Widget script hosting: Cloudflare or CloudFront
+1. Widget script hosting: Vercel
 
 ### Features
 1. Public API integration (Only API)
