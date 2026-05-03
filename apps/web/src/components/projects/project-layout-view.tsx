@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { Boxes, CircleUser, Globe } from 'lucide-react';
 
-import { NeuronsLogo } from '@/components/brand/neurons-logo';
+import { NeuronsLogo } from '../../components/brand/neurons-logo';
 import { TopbarHelpButton } from '@/components/layout/topbar-help-button';
 import { TopbarGlobalSearchButton } from '@/components/layout/topbar-global-search-button';
 import { TopbarNotificationButton } from '@/components/layout/topbar-notification-button';
