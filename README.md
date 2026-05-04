@@ -165,7 +165,7 @@ flowchart TB
 | Backend | Next.js API routes + Supabase | - |
 | Database | Supabase PostgreSQL | - |
 | Auth | Supabase Auth | - |
-| Vector store (RAG) | Supabase pgvector | For storing vectors of uploaded docs |
+| Vector store (RAG) | Supabase PostgreSQL | For storing vectors of uploaded docs |
 | Storage | Supabase Storage | - |
 | Sync & Async workers | Python | For all agent' microservice architecture |
 | Event queue | Upstash Redis | - |
@@ -187,7 +187,7 @@ flowchart TB
 | Twilio SendGrid | `SENDGRID_API_KEY` |
 | OpenRouter | `OPENROUTER_API_KEY`, `OPENROUTER_BASE_URL`, and `OPENROUTER_MODEL` |
 
-## Widget Integration
+## Widget Integration for Conversational/RAG Agent
 > Widget integration is implemented using steps mentioned below:
 1. Users write script tags in their website code.
 ```
@@ -202,31 +202,6 @@ flowchart TB
 2. Users’ browser downloads the Widget JavaScript and sends requests to Neurons’s CDN.
 3. Based on the domain-key, it authenticates the request if it is a valid request then Neurons allows access to an agent otherwise throws **403**.
 4. Widget script hosting: Vercel (in `public/` directory in Next.js project)
-
-### Notes
-1. The length of the domain-key is `2048 bits/256 bytes`.
-2. User is able to regenerate the domain-key from the Neurons web application.
-3. For session and conversation management, `visitor_id` and `conversation_id` are sent through payload. When a visitor visits a website then `32 lengths of uuids` are generated on the `client side` and `server side` respectively and stored into `localstorage `of the visitor's browser.
-4. **Prompt structure**: Summary of old messages + Recent conversation window + Current input + System instructions
-5. **Origin** and **Referrer** header will be used to know the domain and the page respectively from which request is coming.
-6. **Context injection** is the core design pattern of this architecture.
-
-#### Project Creation
-1. User must have to create a project and allowed to link only a single domain (website) to newly created project.
-2. User is able to connect each project to all listed agents.
-3. A single user may have more than one project in the agent engine.
-4. Subscription plan is applied to **PER PROJECT; NOT PER USER**.
-5. The domain-key is generated **PER PROJECT PER USER**.
-
-#### Billing
-1. Messages per month
-2. Tokens per month
-3. Max concurrent conversations
-4. After hitting plan limit, return **429 or 402**
-
-#### Technical burst limits (to stop spam/abuse/bugs)
-1. `# requests` per second/time-duration of seconds
-2. `# requests` per minute per IP.
 
 ## Scope
 
