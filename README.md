@@ -1,30 +1,5 @@
 # Neurons
-A marketplace of AI agents that integrate into any website through a lightweight JavaScript widget.
-
-## Goal
-Build agent marketplace from where anyone from anywhere in the world can integrate agents in their web applications or websites.
-
-## Project Structure
-
-```
-.
-├── apps
-│   ├── agents
-│   │   ├── conversational-agent
-│   │   ├── follow-up-agent
-│   │   └── lead-qualification-agent
-│   ├── web
-│   └── workers
-│       ├── async
-│       │   └── embedding-pipeline-worker
-│       └── sync
-├── .gitignore
-├── README.md
-└── supabase
-    └── migrations
-
-13 directories, 2 files
-```
+Building a single-vendor AI agent marketplace from where anyone from anywhere in the world can integrate agents in their web applications or websites.
 
 ## System Architecture
 
@@ -254,9 +229,6 @@ flowchart TB
 2. `# requests` per minute per IP.
 
 ## Scope
-
-### Hosting
-1. Widget script hosting: Vercel
 
 ### Features
 1. Public API integration (Only API)
