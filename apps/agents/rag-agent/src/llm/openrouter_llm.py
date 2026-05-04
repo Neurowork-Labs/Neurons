@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 OpenRouter uses an OpenAI-compatible API at https://openrouter.ai/api/v1.
 """

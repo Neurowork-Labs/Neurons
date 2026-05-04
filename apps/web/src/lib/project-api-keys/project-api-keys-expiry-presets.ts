@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 export type ApiKeyExpiryPreset = 'never' | '30d' | '90d' | '365d' | 'custom';

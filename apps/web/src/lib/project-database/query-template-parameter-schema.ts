@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 export const QUERY_TEMPLATE_PARAMETER_TYPES = [

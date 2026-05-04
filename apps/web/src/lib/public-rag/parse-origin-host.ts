@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  */
 
 /** Hostname from Origin header (e.g. https://example.com → example.com). */

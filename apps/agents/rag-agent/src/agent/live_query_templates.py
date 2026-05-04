@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Load and select predefined query templates for live database connections
 (`database_connections.query_mode`, `database_connection_query_templates`).

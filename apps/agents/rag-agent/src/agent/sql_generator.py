@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Dedicated SQL generation LLM — system-controlled model that takes the
 visitor's plain-text question and the database schema, then produces a

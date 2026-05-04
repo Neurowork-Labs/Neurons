@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 /** Temporary sample body for the project overview code panel (replace with real project data later). */

@@ -1,6 +1,6 @@
 /*
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 export const WIDGET_LAUNCHER_ICON_MODES = ['lucide', 'custom_url'] as const;

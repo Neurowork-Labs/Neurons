@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 import { ProjectApiKeysView } from '@/components/project-api-keys/project-api-keys-view';

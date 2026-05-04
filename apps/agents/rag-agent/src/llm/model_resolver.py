@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Resolves the LLM provider + model identifier for a project agent
 by reading public.project_agents.model_id → public.models row.

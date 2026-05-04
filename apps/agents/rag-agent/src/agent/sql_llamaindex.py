@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Optional LlamaIndex SQL path (kept separate from custom 3-LLM SQL orchestration).
 """

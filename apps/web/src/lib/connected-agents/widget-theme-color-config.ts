@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  */
 
 export const DEFAULT_WIDGET_THEME_COLOR = '#065F46';

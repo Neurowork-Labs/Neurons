@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  *
  *  Reconciles public.document_processing_jobs → public.documents (and completion notifications)
  *  using the service role after the caller has verified org access with the user-scoped client.

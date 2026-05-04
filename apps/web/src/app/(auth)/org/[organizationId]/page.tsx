@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 import { OrganizationProjectsDashboardView } from '@/components/dashboard/organization-projects-dashboard-view';

@@ -39,7 +39,7 @@ config:
 ---
 
 %% author: Yagnik Poshiya
-%% github: https://github.com/yagnikposhiya/Neurons
+%% github: https://github.com/neuroworklabs/Neurons
 
 flowchart TB
 

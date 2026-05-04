@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 const PROJECT_API_KEY_CLIENT_STORE_PREFIX = 'neurons:project-api-key:';

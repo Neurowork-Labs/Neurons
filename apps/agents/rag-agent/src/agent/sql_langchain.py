@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Optional LangChain SQL path (kept separate from custom 3-LLM and LlamaIndex pipelines).
 Uses LangChain's SQL Database Chain to convert visitor questions into SELECT queries.

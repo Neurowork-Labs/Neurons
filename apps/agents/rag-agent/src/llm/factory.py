@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Builds the correct LLMClient for a given provider name.
 API key env var convention: {PROVIDER_NAME_UPPERCASE}_LLM_API_KEY

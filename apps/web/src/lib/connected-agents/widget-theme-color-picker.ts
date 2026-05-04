@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  */
 
 import { normalizeWidgetThemeColor } from '@/lib/connected-agents/widget-theme-color-config';

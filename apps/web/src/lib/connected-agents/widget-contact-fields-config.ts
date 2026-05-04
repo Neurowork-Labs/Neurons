@@ -1,6 +1,6 @@
 /*
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 export const WIDGET_CONTACT_FIELD_KEYS = ['name', 'email', 'phone', 'location'] as const;

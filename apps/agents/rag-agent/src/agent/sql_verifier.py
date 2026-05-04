@@ -1,6 +1,6 @@
 """
 author: Yagnik Poshiya
-github: https://github.com/yagnikposhiya/Neurons
+github: https://github.com/neuroworklabs/Neurons
 
 Dedicated SQL verification / quality-gate LLM — system-controlled model that
 inspects the generated SQL, the query result, and the visitor's original

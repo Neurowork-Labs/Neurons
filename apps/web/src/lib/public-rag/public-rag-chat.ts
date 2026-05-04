@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  */
 
 import { callRagAgentChat, callRagAgentChatStream } from '@/lib/rag-agent/call-rag-agent-chat';

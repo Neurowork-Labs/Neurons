@@ -1,6 +1,6 @@
 /*
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 export const SESSION_EXPIRED_CODE = 'SESSION_EXPIRED' as const;

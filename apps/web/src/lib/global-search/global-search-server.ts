@@ -1,6 +1,6 @@
 /* 
   author: Yagnik Poshiya
-  github: https://github.com/yagnikposhiya/Neurons
+  github: https://github.com/neuroworklabs/Neurons
 */
 
 import type { GlobalSearchApiResult, GlobalSearchItem, GlobalSearchPayload } from '@/lib/global-search/global-search-types';

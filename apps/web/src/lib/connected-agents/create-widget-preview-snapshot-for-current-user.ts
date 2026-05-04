@@ -1,6 +1,6 @@
 /*
  *  author: Yagnik Poshiya
- *  github: https://github.com/yagnikposhiya/Neurons
+ *  github: https://github.com/neuroworklabs/Neurons
  */
 
 import { createWidgetPreviewSessionForCurrentUser } from '@/lib/connected-agents/create-widget-preview-session-for-current-user';
