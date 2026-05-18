@@ -262,7 +262,7 @@ export function ProjectAnalyticsView({ projectId }: ProjectAnalyticsViewProps) {
                 </div>
               ) : visitorsLoading ? (
                 <div className="px-4 py-10 text-center text-sm text-neutral-500 dark:text-neutral-400">
-                  Loading visitors' information...
+                  Loading visitors&apos; information...
                 </div>
               ) : paginatedVisitors.length === 0 ? (
                 <div className="px-4 py-10 text-center text-sm text-neutral-600 dark:text-neutral-400">
@@ -312,7 +312,7 @@ export function ProjectAnalyticsView({ projectId }: ProjectAnalyticsViewProps) {
                           align="end"
                           side="bottom"
                           sideOffset={4}
-                          className="w-48 min-w-[10.5rem] p-1 font-dm-sans shadow-lg z-[200]"
+                          className="w-48 min-w-[10.5rem] p-1 font-plus-jakarta-sans shadow-lg z-[200]"
                           onCloseAutoFocus={(e) => e.preventDefault()}
                         >
                           <button
@@ -372,7 +372,7 @@ export function ProjectAnalyticsView({ projectId }: ProjectAnalyticsViewProps) {
       }}>
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex h-[min(80vh,760px)] max-w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-4xl"
+          className="font-plus-jakarta-sans flex h-[min(80vh,760px)] max-w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-4xl"
         >
           <DialogHeader className="shrink-0">
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">

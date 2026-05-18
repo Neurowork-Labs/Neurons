@@ -22,7 +22,7 @@ export function DashboardWithSidebarLayout({
   children,
 }: DashboardWithSidebarLayoutProps) {
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[#f3f3f3] font-dm-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+    <div className="flex h-screen flex-col overflow-hidden bg-[#f3f3f3] font-plus-jakarta-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
       {header != null ? (
         <div className="relative z-40 w-full shrink-0">{header}</div>
       ) : null}

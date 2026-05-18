@@ -71,7 +71,7 @@ export function OrganizationsDashboardView() {
   } = useOrganizationsDashboard();
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f3f3f3] font-dm-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+    <div className="flex min-h-screen flex-col bg-[#f3f3f3] font-plus-jakarta-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
       <header className="flex items-center justify-between gap-4 border-b border-neutral-200 bg-[#f3f3f3] px-4 py-2 sm:px-6 dark:border-neutral-800 dark:bg-neutral-950">
         <div className="flex min-w-0 items-center gap-1">
           <Link

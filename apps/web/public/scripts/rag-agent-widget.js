@@ -1,6 +1,6 @@
 /**
  * Neurons — RAG agent embeddable widget (vanilla JS).
- * Loads DM Sans from Google Fonts; theme via data-primary-color (default: app emerald CTA #065f46).
+ * Loads Plus Jakarta Sans from Google Fonts; theme via data-primary-color (default: app emerald CTA #065f46).
  *
  * Optional:
  *   data-agent-name="..." (sets widget title before history loads)
@@ -178,7 +178,7 @@
   }
 
   function loadFont() {
-    var id = 'ae-rag-dm-sans';
+    var id = 'ae-rag-plus-jakarta-sans';
     if (document.getElementById(id)) return;
     var pre = document.createElement('link');
     pre.rel = 'preconnect';
@@ -193,7 +193,7 @@
     link.id = id;
     link.rel = 'stylesheet';
     link.href =
-      'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap';
+      'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap';
     document.head.appendChild(link);
   }
 
@@ -214,23 +214,23 @@
       '[data-ae-rag-widget] .ae-rag-msg-bot strong{font-weight:600;}',
       '[data-ae-rag-widget] .ae-rag-msg-bot a{color:' + PRIMARY + ';text-decoration:underline;}',
       '[data-ae-rag-widget] .ae-rag-greeting{margin-bottom:10px;padding:10px 4px;border-radius:12px;max-width:92%;font-size:15px;line-height:1.5;color:#0f172a;background:transparent;border:none;text-align:left;white-space:normal;word-break:break-word;}',
-      '[data-ae-rag-widget] .ae-rag-contact-wrap{position:relative;margin:0 0 12px 0;padding:10px 12px;border-radius:12px;border:none;background:transparent;font-family:"DM Sans",system-ui,sans-serif;}',
-      '[data-ae-rag-widget] .ae-rag-contact-title{margin:0 0 8px 0;font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#475569;font-family:"DM Sans",system-ui,sans-serif;}',
+      '[data-ae-rag-widget] .ae-rag-contact-wrap{position:relative;margin:0 0 12px 0;padding:10px 12px;border-radius:12px;border:none;background:transparent;font-family:"Plus Jakarta Sans",system-ui,sans-serif;}',
+      '[data-ae-rag-widget] .ae-rag-contact-title{margin:0 0 8px 0;font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#475569;font-family:"Plus Jakarta Sans",system-ui,sans-serif;}',
       '[data-ae-rag-widget] .ae-rag-contact-grid{display:grid;grid-template-columns:1fr;gap:8px;}',
-      '[data-ae-rag-widget] .ae-rag-contact-input{height:34px;border:1px solid #cbd5e1;border-radius:9px;padding:6px 10px;font-size:14px;outline:none;background:#fff;color:#0f172a;font-family:"DM Sans",system-ui,sans-serif;}',
+      '[data-ae-rag-widget] .ae-rag-contact-input{height:34px;border:1px solid #cbd5e1;border-radius:9px;padding:6px 10px;font-size:14px;outline:none;background:#fff;color:#0f172a;font-family:"Plus Jakarta Sans",system-ui,sans-serif;}',
       '[data-ae-rag-widget] .ae-rag-contact-input:focus{border-color:' + PRIMARY + ';box-shadow:0 0 0 2px color-mix(in srgb,' + PRIMARY + ' 20%, transparent);}',
-      '[data-ae-rag-widget] .ae-rag-contact-submit{margin-top:8px;height:36px;border:none;border-radius:9px;padding:0 12px;cursor:pointer;font-size:13px;font-weight:600;color:#fff;background:' + PRIMARY + ';font-family:"DM Sans",system-ui,sans-serif;transition:background-color .15s ease,filter .15s ease;}',
+      '[data-ae-rag-widget] .ae-rag-contact-submit{margin-top:8px;height:36px;border:none;border-radius:9px;padding:0 12px;cursor:pointer;font-size:13px;font-weight:600;color:#fff;background:' + PRIMARY + ';font-family:"Plus Jakarta Sans",system-ui,sans-serif;transition:background-color .15s ease,filter .15s ease;}',
       '[data-ae-rag-widget] .ae-rag-contact-submit:hover:not(:disabled){background:color-mix(in srgb,' + PRIMARY + ' 88%, #000000);filter:brightness(1.04);}',
       '[data-ae-rag-widget] .ae-rag-contact-submit:disabled{cursor:not-allowed;opacity:.7;}',
-      '[data-ae-rag-widget] .ae-rag-contact-error{margin-top:6px;font-size:12px;color:#dc2626;font-family:"DM Sans",system-ui,sans-serif;}',
-      '[data-ae-rag-widget] .ae-rag-contact-geo-wait{margin-top:4px;font-family:"DM Sans",system-ui,sans-serif;}',
+      '[data-ae-rag-widget] .ae-rag-contact-error{margin-top:6px;font-size:12px;color:#dc2626;font-family:"Plus Jakarta Sans",system-ui,sans-serif;}',
+      '[data-ae-rag-widget] .ae-rag-contact-geo-wait{margin-top:4px;font-family:"Plus Jakarta Sans",system-ui,sans-serif;}',
       '[data-ae-rag-widget] .ae-rag-contact-geo-status{margin:0 0 8px 0;font-size:13px;line-height:1.45;color:#64748b;}',
       '[data-ae-rag-widget] .ae-rag-contact-skip-geo{display:inline-block;margin:0;padding:0;border:none;background:transparent;color:' +
         PRIMARY +
-        ';font-family:"DM Sans",system-ui,sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline;}',
+        ';font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline;}',
       '[data-ae-rag-widget] .ae-rag-contact-skip-geo:hover{filter:brightness(0.92);}',
       '[data-ae-rag-widget] .ae-rag-contact-saving-overlay{position:absolute;inset:0;border-radius:16px;background:transparent;display:flex;align-items:center;justify-content:center;z-index:6;}',
-      '[data-ae-rag-widget] .ae-rag-contact-saving-inner{display:flex;flex-direction:column;align-items:center;gap:10px;color:#475569;font-family:"DM Sans",system-ui,sans-serif;text-align:center;padding:12px;}',
+      '[data-ae-rag-widget] .ae-rag-contact-saving-inner{display:flex;flex-direction:column;align-items:center;gap:10px;color:#475569;font-family:"Plus Jakarta Sans",system-ui,sans-serif;text-align:center;padding:12px;}',
       '[data-ae-rag-widget] .ae-rag-contact-saving-icon{width:28px;height:28px;color:' +
         PRIMARY +
         ';animation:ae-rag-spin 1s linear infinite;}',
@@ -241,7 +241,7 @@
       '[data-ae-rag-widget] .ae-rag-typing-dots span{width:6px;height:6px;border-radius:50%;background:' + PRIMARY + ';opacity:.45;animation:ae-rag-dot-bounce 1.2s ease-in-out infinite;}',
       '[data-ae-rag-widget] .ae-rag-typing-dots span:nth-child(2){animation-delay:.15s}',
       '[data-ae-rag-widget] .ae-rag-typing-dots span:nth-child(3){animation-delay:.3s}',
-      '[data-ae-rag-widget] .ae-rag-center-loader{display:flex;flex:1;min-height:0;align-items:center;justify-content:center;gap:10px;color:#64748b;font-size:14px;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;}',
+      '[data-ae-rag-widget] .ae-rag-center-loader{display:flex;flex:1;min-height:0;align-items:center;justify-content:center;gap:10px;color:#64748b;font-size:14px;font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:500;}',
       '[data-ae-rag-widget] .ae-rag-center-loader-icon{width:18px;height:18px;animation:ae-rag-spin 1s linear infinite;color:' + PRIMARY + ';}',
       '[data-ae-rag-widget] button.ae-rag-send-btn{background:transparent!important;color:' +
         PRIMARY +
@@ -278,7 +278,7 @@
       '[data-ae-rag-widget] .ae-rag-card-link:hover .ae-rag-card{border-color:color-mix(in srgb,' + PRIMARY + ' 60%, #e2e8f0);box-shadow:0 2px 8px rgba(0,0,0,.08);}',
 
       '[data-ae-rag-widget] .ae-rag-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:transparent;color:#0f172a;flex-shrink:0;border-radius:16px 16px 0 0;min-height:48px;box-sizing:border-box;border-bottom:1px solid rgba(148,163,184,0.25);background-image:radial-gradient(rgba(148,163,184,0.14) 1px,transparent 1px);background-size:14px 14px;}',
-      '[data-ae-rag-widget] .ae-rag-header-title{font-weight:600;font-size:17px;font-family:"DM Sans",system-ui,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;}',
+      '[data-ae-rag-widget] .ae-rag-header-title{font-weight:600;font-size:17px;font-family:"Plus Jakarta Sans",system-ui,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;}',
       '[data-ae-rag-widget] .ae-rag-theme-toggle{background:transparent;border:none;cursor:pointer;color:' + PRIMARY + ';padding:4px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;transition:background .15s;}',
       '[data-ae-rag-widget] .ae-rag-theme-toggle:hover{background:color-mix(in srgb,' + PRIMARY + ' 12%,transparent);}',
 
@@ -377,7 +377,7 @@
   root.style.cssText = [
     'position:fixed',
     'z-index:2147483646',
-    'font-family:"DM Sans",system-ui,sans-serif',
+    'font-family:"Plus Jakarta Sans",system-ui,sans-serif',
     'font-size:15px',
     'line-height:1.45',
     'color:#0f172a',

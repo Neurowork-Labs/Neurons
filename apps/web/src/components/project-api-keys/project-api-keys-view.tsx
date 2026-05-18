@@ -359,7 +359,7 @@ export function ProjectApiKeysView({ projectId }: ProjectApiKeysViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Create API key</DialogTitle>
@@ -402,13 +402,13 @@ export function ProjectApiKeysView({ projectId }: ProjectApiKeysViewProps) {
                 id="api-key-expiration"
                 size="default"
                 aria-labelledby="api-key-expiration-label"
-                className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0"
+                className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0"
               >
                 <SelectValue placeholder="Select expiration" />
               </SelectTrigger>
-              <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+              <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                 {API_KEY_EXPIRY_SELECT_OPTIONS.map((opt) => (
-                  <SelectItem key={opt.value} value={opt.value} className="font-dm-sans">
+                  <SelectItem key={opt.value} value={opt.value} className="font-plus-jakarta-sans">
                     {opt.label}
                   </SelectItem>
                 ))}
@@ -427,7 +427,7 @@ export function ProjectApiKeysView({ projectId }: ProjectApiKeysViewProps) {
                     id="api-key-exp-custom"
                     type="button"
                     disabled={creating}
-                    className="font-dm-sans inline-flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-neutral-300 bg-white px-3 text-sm text-neutral-900 outline-none transition hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-50 dark:hover:bg-neutral-900 dark:focus-visible:ring-neutral-600 dark:ring-offset-neutral-950"
+                    className="font-plus-jakarta-sans inline-flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-neutral-300 bg-white px-3 text-sm text-neutral-900 outline-none transition hover:bg-neutral-50 focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-50 dark:hover:bg-neutral-900 dark:focus-visible:ring-neutral-600 dark:ring-offset-neutral-950"
                   >
                     <span className={cn(!customDateYmd && 'text-neutral-500 dark:text-neutral-400')}>
                       {customDateYmd ? formatYmdForDisplay(customDateYmd) : 'Pick date'}
@@ -499,7 +499,7 @@ export function ProjectApiKeysView({ projectId }: ProjectApiKeysViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Replace active API key?</DialogTitle>
@@ -540,7 +540,7 @@ export function ProjectApiKeysView({ projectId }: ProjectApiKeysViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Your new API key</DialogTitle>

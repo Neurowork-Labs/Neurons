@@ -1032,7 +1032,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                           align="end"
                           side="bottom"
                           sideOffset={4}
-                          className="w-48 min-w-[10.5rem] p-1 font-dm-sans shadow-lg z-[200]"
+                          className="w-48 min-w-[10.5rem] p-1 font-plus-jakarta-sans shadow-lg z-[200]"
                           onCloseAutoFocus={(e) => e.preventDefault()}
                         >
                           <button
@@ -1262,7 +1262,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Upload database</DialogTitle>
@@ -1281,12 +1281,12 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                 }}
                 disabled={uploading}
               >
-                <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+                <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
-                <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+                <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                   {databaseTypes.map((t) => (
-                    <SelectItem key={t.id} value={t.id} className="font-dm-sans">
+                    <SelectItem key={t.id} value={t.id} className="font-plus-jakarta-sans">
                       {t.name}
                     </SelectItem>
                   ))}
@@ -1299,12 +1299,12 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                 DATABASE
               </span>
               <Select value={draftDatabaseId} onValueChange={setDraftDatabaseId} disabled={uploading}>
-                <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+                <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                   <SelectValue placeholder={draftDatabaseTypeId ? 'Select database' : 'Select type first'} />
                 </SelectTrigger>
-                <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+                <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                   {databasesForSelectedType.map((d) => (
-                    <SelectItem key={d.id} value={d.id} className="font-dm-sans">
+                    <SelectItem key={d.id} value={d.id} className="font-plus-jakarta-sans">
                       {d.name}
                     </SelectItem>
                   ))}
@@ -1338,16 +1338,16 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
               onValueChange={setDraftDatabaseExportLayoutId}
               disabled={uploading || databaseExportLayouts.length === 0}
             >
-              <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+              <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                 <SelectValue
                   placeholder={
                     databaseExportLayouts.length === 0 ? 'No export layouts available' : 'Select export layout'
                   }
                 />
               </SelectTrigger>
-              <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+              <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                 {databaseExportLayouts.map((layout) => (
-                  <SelectItem key={layout.id} value={layout.id} className="font-dm-sans">
+                  <SelectItem key={layout.id} value={layout.id} className="font-plus-jakarta-sans">
                     {layout.format} · {layout.platform}
                   </SelectItem>
                 ))}
@@ -1455,7 +1455,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Select agents for upload</DialogTitle>
@@ -1524,7 +1524,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       <Dialog open={uploadConflictOpen} onOpenChange={setUploadConflictOpen}>
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Cannot upload</DialogTitle>
@@ -1557,7 +1557,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Connect database</DialogTitle>
@@ -1576,12 +1576,12 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                 }}
                 disabled={connectSaving}
               >
-                <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+                <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
-                <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+                <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                   {databaseTypes.map((t) => (
-                    <SelectItem key={t.id} value={t.id} className="font-dm-sans">
+                    <SelectItem key={t.id} value={t.id} className="font-plus-jakarta-sans">
                       {t.name}
                     </SelectItem>
                   ))}
@@ -1601,7 +1601,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                 }}
                 disabled={connectSaving}
               >
-                <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+                <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                   <SelectValue
                     placeholder={
                       connectDraftTypeId
@@ -1612,9 +1612,9 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
                     }
                   />
                 </SelectTrigger>
-                <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+                <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                   {connectDatabasesForSelectedType.map((d) => (
-                    <SelectItem key={d.id} value={d.id} className="font-dm-sans">
+                    <SelectItem key={d.id} value={d.id} className="font-plus-jakarta-sans">
                       {d.name}
                     </SelectItem>
                   ))}
@@ -1770,10 +1770,10 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
               SSL/TLS
             </span>
             <Select value={connectSslMode} onValueChange={setConnectSslMode} disabled={connectSaving}>
-              <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+              <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+              <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                 <SelectItem value="disable">Disable</SelectItem>
                 {isMongoConnectSelection ? null : <SelectItem value="preferred">Preferred</SelectItem>}
                 <SelectItem value="required">Required</SelectItem>
@@ -1839,7 +1839,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Select agents for connection</DialogTitle>
@@ -1911,7 +1911,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       <Dialog open={connectConflictOpen} onOpenChange={setConnectConflictOpen}>
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Cannot connect</DialogTitle>
@@ -1944,7 +1944,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Reconnect database</DialogTitle>
@@ -1997,7 +1997,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       <Dialog open={serverMismatchOpen} onOpenChange={setServerMismatchOpen}>
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Database type mismatch</DialogTitle>
@@ -2056,7 +2056,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Rename database</DialogTitle>
@@ -2119,7 +2119,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Update database files</DialogTitle>
@@ -2236,7 +2236,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Add data</DialogTitle>
@@ -2314,7 +2314,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">
@@ -2447,10 +2447,10 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
               <div className="flex flex-col gap-1.5">
                 <span className="text-[11px] font-semibold tracking-wider text-neutral-500 dark:text-neutral-400">SSL/TLS</span>
                 <Select value={credSslMode} onValueChange={setCredSslMode} disabled={credentialsSaving}>
-                  <SelectTrigger size="default" className="font-dm-sans h-10 w-full min-h-10 cursor-pointer py-0">
+                  <SelectTrigger size="default" className="font-plus-jakarta-sans h-10 w-full min-h-10 cursor-pointer py-0">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="font-dm-sans" position="popper" sideOffset={4}>
+                  <SelectContent className="font-plus-jakarta-sans" position="popper" sideOffset={4}>
                     <SelectItem value="disable">Disable</SelectItem>
                     {isMongoCredentialsSelection ? null : (
                       <SelectItem value="preferred">Preferred</SelectItem>
@@ -2523,7 +2523,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       <Dialog open={reconnectBlockedOpen} onOpenChange={setReconnectBlockedOpen}>
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Cannot reconnect database</DialogTitle>
@@ -2556,7 +2556,7 @@ export function ProjectDatabaseView({ projectId }: ProjectDatabaseViewProps) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Delete database</DialogTitle>

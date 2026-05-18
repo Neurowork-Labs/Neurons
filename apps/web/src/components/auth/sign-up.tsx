@@ -66,7 +66,7 @@ export function SignUp({ message }: SignUpProps) {
   }
 
   return (
-    <main className="auth-dotted-background flex min-h-screen items-center justify-center px-4 py-10 font-dm-sans text-neutral-900">
+    <main className="auth-dotted-background flex min-h-screen items-center justify-center px-4 py-10 font-plus-jakarta-sans text-neutral-900">
       <div className="mx-auto w-full max-w-xl rounded-2xl border border-neutral-200 bg-[#f3f3f3] px-6 py-10 sm:px-10 sm:py-12">
         <section className="mx-auto w-full max-w-md">
           <div className="flex justify-center">

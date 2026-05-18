@@ -18,7 +18,7 @@ function Calendar({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn('font-dm-sans p-3', className)}
+      className={cn('font-plus-jakarta-sans p-3', className)}
       classNames={{
         months: 'flex flex-col sm:flex-row gap-4 sm:gap-6',
         month: 'space-y-4',

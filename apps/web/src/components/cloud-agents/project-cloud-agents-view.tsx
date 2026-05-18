@@ -291,7 +291,7 @@ export function ProjectCloudAgentsView({ projectId }: ProjectCloudAgentsViewProp
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-h-[min(76vh,700px)] max-w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-[84rem]"
+          className="font-plus-jakarta-sans flex max-h-[min(76vh,700px)] max-w-[calc(100%-1.5rem)] flex-col gap-0 overflow-hidden border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-[84rem]"
         >
           <div className="scrollbar-dialog min-h-0 flex-1 overflow-y-auto pr-1">
             <DialogHeader className="pr-12">

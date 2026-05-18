@@ -104,7 +104,7 @@ export function ProjectDatabaseQueryModeDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton
-        className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+        className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
       >
         <DialogHeader>
           <DialogTitle className="text-neutral-900 dark:text-neutral-50">Query mode{titleSuffix}</DialogTitle>

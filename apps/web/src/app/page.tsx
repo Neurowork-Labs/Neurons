@@ -30,26 +30,26 @@ export default async function HomePage() {
         aria-hidden="true"
       />
 
-      <header className="absolute left-1/2 top-4 z-20 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between rounded-full bg-white/75 px-5 py-3 text-sm font-medium font-dm-sans shadow-md backdrop-blur-sm sm:w-[calc(100%-3rem)] sm:px-6">
+      <header className="absolute left-1/2 top-4 z-20 flex w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 items-center justify-between rounded-full bg-white/75 px-5 py-3 text-sm font-medium font-plus-jakarta-sans shadow-md backdrop-blur-sm sm:w-[calc(100%-3rem)] sm:px-6">
         <div className="flex items-center gap-2">
           <NeuronsLogo className="h-[24px] w-12" />
-          <div className="font-dm-sans text-lg font-semibold tracking-tight sm:text-2xl">
+          <div className="font-plus-jakarta-sans text-lg font-semibold tracking-tight sm:text-2xl">
             Neurons
           </div>
         </div>
 
         <Link
           href={isLoggedIn ? '/dashboard' : '/auth/signup'}
-          className="inline-flex cursor-pointer items-center justify-center rounded-full border border-black bg-black px-5 py-2 text-sm font-semibold tracking-tight text-white font-dm-sans shadow-sm transition hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-md sm:text-base"
+          className="inline-flex cursor-pointer items-center justify-center rounded-full border border-black bg-black px-5 py-2 text-sm font-semibold tracking-tight text-white font-plus-jakarta-sans shadow-sm transition hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-md sm:text-base"
         >
           {isLoggedIn ? 'Dashboard' : 'Get Started'}
         </Link>
       </header>
 
-      <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col px-4 pb-4 pt-24 font-dm-sans sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col px-4 pb-4 pt-24 font-plus-jakarta-sans sm:px-6 lg:px-8">
         <section className="flex flex-1 flex-col items-center justify-center gap-8 py-4">
           <div className="max-w-4xl text-center leading-tight">
-            <h1 className="font-dm-sans text-3xl font-semibold text-neutral-900 sm:text-4xl md:text-5xl">
+            <h1 className="font-plus-jakarta-sans text-3xl font-semibold text-neutral-900 sm:text-4xl md:text-5xl">
               <span className="block">Ready-to-deploy agents</span>
               <span className="mt-4 block">
                 built by <span className="text-orange-500">Neurons</span>

@@ -48,7 +48,7 @@ export function TopbarNotificationButton() {
 
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent
-          className="font-dm-sans !flex !h-[min(82vh,46rem)] !max-h-[min(82vh,46rem)] max-w-[calc(100%-1.5rem)] flex-col gap-0 border-neutral-200 bg-white p-0 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
+          className="font-plus-jakarta-sans !flex !h-[min(82vh,46rem)] !max-h-[min(82vh,46rem)] max-w-[calc(100%-1.5rem)] flex-col gap-0 border-neutral-200 bg-white p-0 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
           showCloseButton={false}
         >
           <DialogHeader className="shrink-0 border-b border-neutral-200 px-5 pb-4 pt-5 dark:border-neutral-800">

@@ -152,7 +152,7 @@ export function TopbarGlobalSearchButton() {
         }}
       >
         <DialogContent
-          className="font-dm-sans flex h-[74vh] w-full max-w-[calc(100%-1.5rem)] flex-col overflow-hidden border-neutral-200 bg-white p-0 dark:border-neutral-800 dark:bg-neutral-900 sm:h-[78vh] sm:max-w-3xl"
+          className="font-plus-jakarta-sans flex h-[74vh] w-full max-w-[calc(100%-1.5rem)] flex-col overflow-hidden border-neutral-200 bg-white p-0 dark:border-neutral-800 dark:bg-neutral-900 sm:h-[78vh] sm:max-w-3xl"
           showCloseButton={false}
         >
           <DialogHeader className="px-5 pt-5">

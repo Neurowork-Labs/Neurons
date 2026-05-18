@@ -88,6 +88,8 @@ export function useProjectAnalyticsPage(projectId: string) {
       selectedAgentId !== ALL_CONNECTED_AGENTS_FILTER_VALUE &&
       !connectedAgents.some((agent) => agent.projectAgentId === selectedAgentId)
     ) {
+      // This keeps the selected agent consistent when the connected list changes.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedAgentId(ALL_CONNECTED_AGENTS_FILTER_VALUE);
     }
   }, [connectedAgents, selectedAgentId]);
@@ -136,6 +138,8 @@ export function useProjectAnalyticsPage(projectId: string) {
   }, [load, loadVisitors]);
 
   useEffect(() => {
+    // Reset pagination when filters change.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPage(1);
   }, [selectedAgentId, search]);
 

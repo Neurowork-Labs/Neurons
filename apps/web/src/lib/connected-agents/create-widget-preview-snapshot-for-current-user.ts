@@ -28,6 +28,29 @@ const PREVIEW_CAPTURE_VIEWPORT = { width: 1366, height: 768 };
 const PREVIEW_CAPTURE_TIMEOUT_MS = 20_000;
 const PREVIEW_POST_LOAD_WAIT_MS = 1200;
 
+type PageLike = {
+  goto: (url: string, opts: { waitUntil: string; timeout: number }) => Promise<void>;
+  waitForTimeout: (ms: number) => Promise<void>;
+  screenshot: (opts: { type: 'png'; fullPage: boolean }) => Promise<Buffer>;
+};
+
+type ContextLike = {
+  newPage: () => Promise<PageLike>;
+};
+
+type BrowserLike = {
+  newContext: (opts: { viewport: typeof PREVIEW_CAPTURE_VIEWPORT }) => Promise<ContextLike>;
+  close: () => Promise<void>;
+};
+
+type ChromiumLike = {
+  launch: (opts: { headless: boolean; args: string[] }) => Promise<BrowserLike>;
+};
+
+type PlaywrightModuleLike = {
+  chromium?: ChromiumLike;
+};
+
 export async function createWidgetPreviewSnapshotForCurrentUser(input: {
   projectId: string;
   projectAgentId: string;
@@ -54,11 +77,11 @@ export async function createWidgetPreviewSnapshotForCurrentUser(input: {
   const dynamicImport = new Function(
     'specifier',
     'return import(specifier)',
-  ) as (specifier: string) => Promise<any>;
+  ) as (specifier: string) => Promise<unknown>;
 
-  let playwrightModule: any;
+  let playwrightModule: PlaywrightModuleLike | null = null;
   try {
-    playwrightModule = await dynamicImport('playwright');
+    playwrightModule = (await dynamicImport('playwright')) as PlaywrightModuleLike;
   } catch {
     return {
       ok: false,
@@ -77,13 +100,13 @@ export async function createWidgetPreviewSnapshotForCurrentUser(input: {
     };
   }
 
-  let browser: any = null;
+  let browser: BrowserLike | null = null;
   try {
     browser = await chromium.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
-    const context = await browser.newContext({
+    const context = await browser!.newContext({
       viewport: PREVIEW_CAPTURE_VIEWPORT,
     });
     const page = await context.newPage();
@@ -92,10 +115,10 @@ export async function createWidgetPreviewSnapshotForCurrentUser(input: {
       timeout: PREVIEW_CAPTURE_TIMEOUT_MS,
     });
     await page.waitForTimeout(PREVIEW_POST_LOAD_WAIT_MS);
-    const image = (await page.screenshot({
+    const image = await page.screenshot({
       type: 'png',
       fullPage: false,
-    })) as Buffer;
+    });
     return {
       ok: true,
       contentType: 'image/png',
@@ -112,12 +135,10 @@ export async function createWidgetPreviewSnapshotForCurrentUser(input: {
       code: 'CAPTURE_FAILED',
     };
   } finally {
-    if (browser) {
-      try {
-        await browser.close();
-      } catch {
-        // ignore close errors
-      }
+    try {
+      await browser?.close();
+    } catch {
+      // ignore close errors
     }
   }
 }

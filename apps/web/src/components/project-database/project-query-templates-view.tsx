@@ -806,7 +806,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
                               align="end"
                               side="bottom"
                               sideOffset={4}
-                              className="w-48 min-w-[10.5rem] p-1 font-dm-sans shadow-lg z-[200]"
+                              className="w-48 min-w-[10.5rem] p-1 font-plus-jakarta-sans shadow-lg z-[200]"
                               onCloseAutoFocus={(e) => e.preventDefault()}
                             >
                               <button
@@ -882,7 +882,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Add query template</DialogTitle>
@@ -1081,7 +1081,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-2xl"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Edit query template</DialogTitle>
@@ -1294,7 +1294,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-6xl"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-6xl"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Template parameters</DialogTitle>
@@ -1433,7 +1433,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-md"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Delete query template</DialogTitle>
@@ -1475,7 +1475,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-3xl"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-3xl"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Carousel card configuration</DialogTitle>
@@ -1578,7 +1578,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
                               <button
                                 type="button"
                                 disabled={carouselFieldsDisabled}
-                                className="font-dm-sans border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex h-10 w-full cursor-pointer items-center justify-between gap-2 rounded-lg border border-neutral-300 bg-white px-3 py-2 text-left text-sm whitespace-nowrap text-neutral-900 shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+                                className="font-plus-jakarta-sans border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex h-10 w-full cursor-pointer items-center justify-between gap-2 rounded-lg border border-neutral-300 bg-white px-3 py-2 text-left text-sm whitespace-nowrap text-neutral-900 shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
                               >
                                 <span className="truncate">
                                   {cc.detailColumns.length > 0
@@ -1592,7 +1592,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
                               align="start"
                               side="bottom"
                               sideOffset={6}
-                              className="font-dm-sans z-[100] w-[var(--radix-popover-trigger-width)] min-w-[14rem] rounded-xl border border-neutral-200 bg-white p-1 shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
+                              className="font-plus-jakarta-sans z-[100] w-[var(--radix-popover-trigger-width)] min-w-[14rem] rounded-xl border border-neutral-200 bg-white p-1 shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                             >
                               <div
                                 className="flex max-h-56 flex-col gap-1 overflow-y-auto pr-1 overscroll-contain"
@@ -1604,7 +1604,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
                                     return (
                                       <label
                                         key={c}
-                                        className="font-dm-sans focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-pointer items-center gap-2 rounded-lg py-2 pr-2 pl-2 text-sm text-neutral-900 outline-hidden select-none hover:bg-neutral-100 dark:text-neutral-100 dark:hover:bg-neutral-800"
+                                        className="font-plus-jakarta-sans focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-pointer items-center gap-2 rounded-lg py-2 pr-2 pl-2 text-sm text-neutral-900 outline-hidden select-none hover:bg-neutral-100 dark:text-neutral-100 dark:hover:bg-neutral-800"
                                       >
                                         <input
                                           type="checkbox"
@@ -1808,7 +1808,7 @@ export function ProjectQueryTemplatesView({ projectId, connectionId }: ProjectQu
       >
         <DialogContent
           showCloseButton
-          className="font-dm-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
+          className="font-plus-jakarta-sans flex max-h-[min(90vh,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] flex-col gap-4 overflow-y-auto border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:max-w-lg"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Detected columns</DialogTitle>

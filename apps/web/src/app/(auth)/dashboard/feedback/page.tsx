@@ -10,7 +10,7 @@ import { DashboardWithSidebarLayout } from '@/components/dashboard/dashboard-wit
 export default function DashboardFeedbackPage() {
   return (
     <DashboardWithSidebarLayout>
-      <main className="min-h-screen bg-[#f3f3f3] px-4 py-10 font-dm-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+      <main className="min-h-screen bg-[#f3f3f3] px-4 py-10 font-plus-jakarta-sans text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
         <div className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
           <h1 className="text-2xl font-semibold tracking-tight">Feedback</h1>
           <p className="mt-3 text-neutral-600 dark:text-neutral-400">

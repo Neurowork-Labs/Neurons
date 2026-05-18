@@ -72,13 +72,19 @@ export function buildWidgetPreviewSrcDoc(input: {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(input.projectName || 'Neurons')} - Widget Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root { color-scheme: ${themeMode}; }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         height: 100vh;
-        font-family: "DM Sans", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
         background: ${bgColor};
         overflow: hidden;
       }
@@ -122,7 +128,7 @@ export function buildWidgetPreviewSrcDoc(input: {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        font-family: "DM Sans", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
         font-size: 22px;
         font-weight: 700;
         letter-spacing: .22em;

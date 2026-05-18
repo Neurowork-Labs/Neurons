@@ -212,7 +212,7 @@ export function ProjectSettingsView({ projectId }: { projectId: string }) {
       >
         <DialogContent
           showCloseButton={false}
-          className="font-dm-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+          className="font-plus-jakarta-sans flex max-w-[calc(100%-1.5rem)] flex-col gap-4 border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
         >
           <DialogHeader>
             <DialogTitle className="text-neutral-900 dark:text-neutral-50">Delete Project</DialogTitle>

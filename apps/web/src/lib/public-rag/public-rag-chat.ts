@@ -113,7 +113,6 @@ export async function runPublicRagChat(
   // are all independent I/O calls. Running them sequentially added
   // ~400-800ms to TTFT; Promise.all keeps the whole group at ≈ max(reads).
   // ------------------------------------------------------------------
-  let visitorContact: VisitorContactRow;
   const [paRes, vcOrErr, widgetCfgRes, projectRes] = await Promise.all([
     supabase
       .from('project_agents')
@@ -146,7 +145,7 @@ export async function runPublicRagChat(
   if (vcOrErr instanceof Error) {
     return { ok: false, message: vcOrErr.message };
   }
-  visitorContact = vcOrErr;
+  const visitorContact = vcOrErr as VisitorContactRow;
   const visitorContactId = visitorContact.id;
 
   const { data: widgetCfg, error: widgetCfgErr } = widgetCfgRes;
